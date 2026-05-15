@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TroncoSport | Acceso</title>
+  <meta name="description" content="Acceso y registro de usuarios para TroncoSport.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page auth-only" data-page="index">
+  <main class="auth-center">
+    <section class="login-panel auth-card" id="acceso" aria-labelledby="auth-title">
+      <div class="panel-heading">
+        <span class="eyebrow">Acceso</span>
+        <h1 id="auth-title">Cuenta</h1>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Acceso de usuario">
+        <button class="auth-tab is-active" type="button" id="showLogin">Iniciar sesion</button>
+        <button class="auth-tab" type="button" id="showRegister">Registrar</button>
+      </div>
+
+      <form class="login-form auth-form is-active" id="loginForm">
+        <label for="username">Usuario o correo</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          placeholder="tu.correo@troncosport.com"
+          autocomplete="off"
+          value=""
+          required
+        >
+
+        <label for="password">Contrasena</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Tu contrasena"
+          autocomplete="new-password"
+          value=""
+          required
+        >
+
+        <button class="primary-btn" type="submit">Entrar</button>
+      </form>
+
+      <form class="login-form auth-form" id="registerForm">
+        <label for="registerName">Nombre</label>
+        <input id="registerName" type="text" placeholder="Laura Martinez" required>
+
+        <label for="registerEmail">Correo</label>
+        <input
+          id="registerEmail"
+          type="text"
+          inputmode="email"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          placeholder="laura@troncosport.com"
+          required
+        >
+
+        <label for="registerAge">Edad</label>
+        <input
+          id="registerAge"
+          type="text"
+          inputmode="numeric"
+          pattern="[1-9][0-9]*"
+          placeholder="28"
+          required
+        >
+
+        <label for="registerPassword">Contrasena</label>
+        <input
+          id="registerPassword"
+          type="password"
+          minlength="4"
+          placeholder="Minimo 4 caracteres"
+          autocomplete="new-password"
+          required
+        >
+
+        <button class="primary-btn" type="submit">Crear usuario</button>
+      </form>
+
+      <div class="access-note" role="status" aria-live="polite" id="loginMessage">
+        Ingresa con tu usuario registrado.
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

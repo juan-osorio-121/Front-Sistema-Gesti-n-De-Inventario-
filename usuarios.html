@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TroncoSport | Usuarios</title>
+  <meta
+    name="description"
+    content="Modulo frontend CRUD para crear, consultar, editar y eliminar usuarios de TroncoSport."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page" data-page="usuarios">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="dashboard.html" aria-label="Dashboard TroncoSport">
+        <img src="logo.png" alt="Logo de TroncoSport">
+        <div>
+          <span class="eyebrow">Sistema</span>
+          <strong>TroncoSport</strong>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegacion del panel">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="inventario.html">Inventario</a>
+        <a class="is-active" href="usuarios.html">Usuarios</a>
+      </nav>
+
+      <div class="sidebar-box">
+        <span class="eyebrow">Modulo</span>
+        <h3>Usuarios</h3>
+        <p>CRUD conectado.</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Modulo</span>
+          <h1>Usuarios</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <strong id="currentUser">Administrador</strong>
+            <span id="currentRole">Rol: Supervisor general</span>
+          </div>
+          <button class="secondary-btn compact-btn" type="button" id="logoutButton">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <section class="stats-grid user-stats-grid" aria-label="Indicadores de usuarios">
+        <article class="stat-card stat-card-primary">
+          <span>Registrados</span>
+          <strong id="totalUsers">0</strong>
+          <p>Total en API.</p>
+        </article>
+        <article class="stat-card">
+          <span>Conexion</span>
+          <strong>API</strong>
+          <p>/api/usuarios.</p>
+        </article>
+      </section>
+
+      <section class="panel-card user-module" id="users" aria-labelledby="usuarios-title">
+        <div class="panel-heading">
+          <span class="eyebrow">CRUD</span>
+          <h2 id="usuarios-title">Crear y editar</h2>
+        </div>
+
+        <div class="user-crud-grid">
+          <form id="userForm" class="user-form">
+            <input type="hidden" id="userId">
+
+            <label for="userName">Nombre</label>
+            <input id="userName" type="text" placeholder="Laura Martinez" required>
+
+            <label for="userEmail">Correo electronico</label>
+            <input
+              id="userEmail"
+              type="text"
+              inputmode="email"
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+              placeholder="laura@troncosport.com"
+              required
+            >
+
+            <label for="userAge">Edad</label>
+            <input
+              id="userAge"
+              type="text"
+              inputmode="numeric"
+              pattern="[1-9][0-9]*"
+              placeholder="28"
+              required
+            >
+
+            <label for="userRole">Rol</label>
+            <select id="userRole" required>
+              <option value="Usuario">Usuario</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Vendedor">Vendedor</option>
+              <option value="Inventario">Inventario</option>
+            </select>
+
+            <div class="form-actions">
+              <button class="primary-btn" type="submit" id="userSubmitButton">Guardar usuario</button>
+              <button class="secondary-btn" type="button" id="userResetButton">Limpiar</button>
+            </div>
+
+            <div class="inline-message" role="status" aria-live="polite" id="userFormMessage">
+              Listo para guardar.
+            </div>
+          </form>
+
+          <div class="user-table-area">
+            <div class="toolbar">
+              <input
+                id="userSearchInput"
+                type="search"
+                placeholder="Buscar usuario"
+                aria-label="Buscar usuarios"
+              >
+            </div>
+
+            <div class="table-wrapper">
+              <table id="usersTable" class="users-table">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Rol</th>
+                    <th>ID</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="usersBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-card">
+        <div class="panel-heading">
+          <span class="eyebrow">Lista</span>
+          <h2>Accesos</h2>
+        </div>
+
+        <div class="user-list" id="userList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

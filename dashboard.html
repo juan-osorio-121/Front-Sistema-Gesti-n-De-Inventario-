@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TroncoSport | Dashboard</title>
+  <meta
+    name="description"
+    content="Dashboard general de TroncoSport."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page" data-page="dashboard">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="dashboard.html" aria-label="Dashboard TroncoSport">
+        <img src="logo.png" alt="Logo de TroncoSport">
+        <div>
+          <span class="eyebrow">Sistema</span>
+          <strong>TroncoSport</strong>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegacion del panel">
+        <a class="is-active" href="dashboard.html">Dashboard</a>
+        <a href="inventario.html">Inventario</a>
+        <a href="usuarios.html">Usuarios</a>
+      </nav>
+
+      <div class="sidebar-box">
+        <span class="eyebrow">Estado</span>
+        <h3>Activo</h3>
+        <p>Vista general conectada.</p>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Modulo</span>
+          <h1>Dashboard</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="user-chip">
+            <strong id="currentUser">Administrador</strong>
+            <span id="currentRole">Rol: Supervisor general</span>
+          </div>
+          <button class="secondary-btn compact-btn" type="button" id="logoutButton">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <section class="stats-grid" id="overview" aria-label="Indicadores generales">
+        <article class="stat-card stat-card-primary">
+          <span>Referencias</span>
+          <strong id="totalProducts">0</strong>
+          <p>Productos registrados.</p>
+        </article>
+        <article class="stat-card">
+          <span>Unidades</span>
+          <strong id="totalStock">0</strong>
+          <p>Stock total.</p>
+        </article>
+        <article class="stat-card">
+          <span>Alertas</span>
+          <strong id="lowStockCount">0</strong>
+          <p>Stock bajo.</p>
+        </article>
+        <article class="stat-card">
+          <span>Valor</span>
+          <strong id="inventoryValue">$0</strong>
+          <p>Total estimado.</p>
+        </article>
+      </section>
+
+      <section class="dashboard-overview-grid">
+        <article class="panel-card" id="graficos">
+          <div class="panel-heading">
+            <span class="eyebrow">Analitica</span>
+            <h2>Graficos</h2>
+          </div>
+
+          <div class="charts-grid">
+            <div class="circle-chart">
+              <div class="donut" id="stockDonut">
+                <span id="stockDonutValue">0%</span>
+              </div>
+              <div>
+                <strong>Stock sano</strong>
+                <p>Productos disponibles.</p>
+              </div>
+            </div>
+
+            <div class="circle-chart">
+              <div class="donut donut-green" id="usersDonut">
+                <span id="usersDonutValue">0</span>
+              </div>
+              <div>
+                <strong>Usuarios</strong>
+                <p>Accesos activos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bar-chart" aria-label="Grafico de stock por producto" id="stockBars"></div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-heading">
+            <span class="eyebrow">Actividad</span>
+            <h2>Movimientos</h2>
+          </div>
+          <ul class="activity-list" id="activityList"></ul>
+        </article>
+      </section>
+
+      <section class="dual-grid">
+        <article class="panel-card">
+          <div class="panel-heading">
+            <span class="eyebrow">Modulo</span>
+            <h2>Inventario</h2>
+          </div>
+
+          <a class="module-link" href="inventario.html">Abrir inventario</a>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-heading">
+            <span class="eyebrow">Modulo</span>
+            <h2>Usuarios</h2>
+          </div>
+
+          <a class="module-link" href="usuarios.html">Abrir usuarios</a>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
